@@ -1,0 +1,32 @@
+[
+  {
+    "listing": "/blog.html",
+    "items": [
+      "/posts/kat-correia-01.html",
+      "/posts/gillian-richard.html",
+      "/posts/alex-brandfonbrener.html",
+      "/posts/kat-correia-02.html",
+      "/posts/joy-won.html"
+    ]
+  },
+  {
+    "listing": "/index.html",
+    "items": [
+      "/posts/joy-won.html",
+      "/posts/alex-brandfonbrener.html",
+      "/posts/gillian-richard.html",
+      "/posts/kat-correia-01.html",
+      "/posts/kat-correia-02.html"
+    ]
+  },
+  {
+    "listing": "/our-art.html",
+    "items": [
+      "/posts/kat-correia-01.html",
+      "/posts/gillian-richard.html",
+      "/posts/alex-brandfonbrener.html",
+      "/posts/kat-correia-02.html",
+      "/posts/joy-won.html"
+    ]
+  }
+]

@@ -1,0 +1,20 @@
+---
+title: "Trees:Forest"
+author: "Joy Won"
+date: "September 30, 2021"
+format: html
+---
+
+![Trees:Forest by Joy Won](images/surf-artwork-joy-won.jpeg){fig-align="center"}
+
+The well-known idiom, "Don't See the Forest for the Trees," was a key quote in thinking about the obstetrics and gynecology data we worked with this past summer in the Correia lab. Our research consisted of collecting and analyzing data about racial disparities relating to access to care, treatment received, and health outcomes from top journals in the field of obstetrics and gynecology. Data is concrete, numbers on a screen without emotion or feeling, but the subject matter of the data we collected was and is not. When working with medical data, especially relating to disparities and health outcomes, it is essential to approach the work with sensitivity and respect for those who have made this work possible. With that in mind, data art was the focus of our SURF project this summer, and as a group we pondered, researched, and discussed how the art we produced, in whatever form it took, could contribute to the greater narrative of our research.
+
+The artwork above is titled, "Trees:Forest." In creating this image, I thought a lot about how to represent the vast quantity of the data we collected and processed, while not losing sight of each individual person or patient, or metaphorical "tree", from who the data was collected about. Only through the presence of each tree as a collective forest can we analyze the data and see the trends and connections between different groups, variables, etc.
+
+This was more specifically represented by the cubic landscape seen in the background depicting a forest, with a single tree from the forest being at the forefront of the image. In thinking about the Groundwater Approach, I combined the river of the landscape with the trunk of the tree to show how the water each tree receives is essential to its growth and life, which metaphorically represents the varying distributions of resources people have access to. However, the problem at hand would be the stark differences between different racial groups being due to the racial structures in our society, the river, disproportionately waters and provides resources like education, medical care, and more.
+
+Finally, the water bubbles outward to a waterfall located at the corner of the landscape. The streams of water mesh into the roots of the tree to represent the networks, connections, and experiences that shape and help the tree to grow. Through this visualization, I hope it is evident that we as individuals, the trees, we must collectively see, understand, and work against racial structures in our society, the forest, to work towards a more equitable future.
+
+For more information on the Groundwater Approach please visit: https://www.racialequityinstitute.com/groundwaterapproach
+
+Hayes-Greene, Deena, and Bayard P. Love. The Groundwater Approach: Building a Practical Understanding of Structural Racism. The Racial Equity Institute. 2018.

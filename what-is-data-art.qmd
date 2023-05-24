@@ -1,0 +1,44 @@
+---
+title: "What is Data Art?"
+format: html
+---
+
+Data art is a *visceralization*[^1] of data that takes a step beyond data visualization. This means that the whole body can experience the data. You can see it, feel it, touch it, hear it, taste it. Instead of a bar graph or pie chart, we display data through drawing, dance, digital art, and even coding in R.
+
+[^1]: The term data *visceralization* is discussed in [Data Feminism](https://data-feminism.mitpress.mit.edu/pub/5evfe9yd#data-visceralization)
+
+## **Our Process**
+
+::: columns
+::: {.column width="33%"}
+![](images/alex_sketch1.jpeg){fig-align="center"}
+:::
+::: {.column width="34%"}
+![](images/alex_sketch2.jpeg){fig-align="center"}
+:::
+::: {.column width="33%"}
+![](images/alex_sketch3.jpeg){fig-align="center"}
+:::
+:::
+
+Alexander Brandfonbrener '23: Above are three of my notebook tests. I had a few goals for my data art process. For the first few weeks, I tried to make generic representations of data with a focus on the data type. For example, I did tests with digital values as colors, and ratios as fluid gradients. Then for the rest of the project, I tailored my work to creating a narrative using imagery connected to OB/GYN topics. This included cervixes and other reproductive organs, and an extended metaphor that tied groundwater to racial inequities, as per the Racial Equity Institute's publication. I settled on hearts as the medium for my main data art piece.
+
+Gillian Richard '24: I began by practicing how to represent numbers through movement including the use of levels, body parts, intensity, location, style, repetition, and direction. I then moved into using some example articles to practice representing actual data and created four practice videos, each with a different way of embodying the data. I created a list of steps for my process that is as follows:
+
+Method:
+
+1.  Read through article
+
+2.  Record data
+
+3.  Calculate differences
+
+4.  Meditate on connection between subject + medium
+
+5.  Assign data to body parts/duration/etc
+
+6.  Improv for each statistic
+
+7.  Choreograph and record
+
+Since I am using my own body as the vessel to present the data, I found it important to focus on the prevalence of whiteness and white supremacy due to my positionality as a white woman. Therefore, for my final piece, I represented the percentage of articles that used white as a reference group.

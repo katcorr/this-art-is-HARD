@@ -1,0 +1,149 @@
+---
+title: An In*conceiv*able Blastocyst
+author: "Kat Correia"
+date: "July 2021"
+format: html
+---
+
+```{r}
+#| label: setup
+#| include: false
+knitr::opts_chunk$set(echo = FALSE, messages = FALSE)
+
+library(tidyverse)
+library(packcircles)  ## making circle packing easy 
+library(viridis)      ## for color palettes
+library(RColorBrewer) ## for color palettes
+library(ggfx)         ## for blur
+library(ggforce)      ## for narrative
+```
+
+```{r}
+#| label: data-prep
+
+effects_table_pregcomp <- readRDS("data/effects_table_pregcomp.Rds")
+articles_table_pregcomp <- readRDS("data/articles_table_pregcomp.Rds")
+
+dat0 <- effects_table_pregcomp %>%
+  left_join(select(articles_table_pregcomp, doi, title, abstract, year), by="doi") %>% 
+  filter(flagged != 1)
+
+dat1 <- dat0 %>%
+  filter(measure=="OR" & ref != "N/A" & doi != "10.1016/j.ajog.2017.05.051") %>%
+  # add extra row for reference group
+  add_row(compare = "white", point = 1, lower = 1, upper = 1) %>%
+  mutate(# very broad groups
+        compare2 = tolower(compare)
+        , compare_broad = case_when(str_detect(compare2, "asian") ~ "asian"
+                , str_detect(compare2, "black|african american") ~ "black"
+                , str_detect(compare2, "hispanic|latin|puerto rican|dominican|mexican")&!str_detect(compare2, "non-hispanic")
+                                      ~ "hispanic"
+                , str_detect(compare2, "american indian/alaska native|native american") ~ "native american"
+                , str_detect(compare2, "other") ~ "other"
+                , str_detect(compare2, "unknown|missing") ~ "unknown")
+        # any covariates?
+        , unadjusted = ifelse(covariates %in% c("none","n/a"),yes="yes",no="no")
+        , for_order = ifelse(compare_broad %in% c("other", "unknown")
+                             , yes=2025, no=year)) %>%
+  # order of rows matters when computing circle location with packcircles package
+  arrange(year) %>%
+  mutate(id = case_when(compare=="white"~ 1
+                        , TRUE ~ row_number()+1)
+         # blur the missing and unknown categories
+        , blurred = ifelse(compare_broad %in% c("other","unknown"), yes=1, no=0)) %>%
+  arrange(id)
+
+# create starting x and y and radius for circles
+dat_circ <- circleProgressiveLayout(dat1$point, sizetype='area') %>% 
+  mutate(id = row_number()) %>%
+  left_join(select(dat1, id, lower, upper), by="id") %>%
+  mutate(# compute what radius should be for lower and upper CI values based on area
+         radius_lower = sqrt(lower/pi)
+         , radius_upper = sqrt(upper/pi)) %>%
+  rename(radius_point = radius)
+
+# generate data for ggplot2 
+dat_gg2 <- circleLayoutVertices(dat_circ %>%
+                                  select(x,y,radius=radius_point),npoints=50) %>%
+  inner_join(dat1, by="id")
+
+# create data for white reference circle
+dat_white <- dat_gg2 %>%
+  filter(compare == "white")
+
+# create data for point estimate circles
+dat_gg2_point <- dat_gg2 %>%
+  filter(compare !="white")
+  
+# Now create data for inner and outer circles
+# draw smaller circle, with area relative to lower bound
+dat_gg2_lower <- circleLayoutVertices(dat_circ %>%
+                                        select(x,y,radius=radius_lower), npoints=50) %>%
+  inner_join(dat1, by="id") %>%
+  filter(compare != "white")
+
+# draw larger circle, with area relative to upper bound
+dat_gg2_upper <- circleLayoutVertices(dat_circ %>%
+                                        select(x,y,radius=radius_upper),npoints=50)%>%
+  inner_join(dat1, by="id") %>%
+  filter(compare != "white")
+```
+
+```{r}
+#| label: figure-blast
+
+# unblurred part of plot
+base_plot1 <- ggplot(dat_gg2, aes(x=x,y=y, group=id)) + 
+  geom_path(data=filter(dat_gg2, blurred==0)
+            , linewidth=1
+            , color="#ffffff90") +
+  geom_polygon(data=dat_white,fill="white") + 
+  geom_polygon(data=filter(dat_gg2_lower, blurred==0)
+               ,aes(fill=compare_broad)) +
+  geom_polygon(data=filter(dat_gg2_upper, blurred==0)
+               ,aes(fill=compare_broad),alpha=0.5) +
+  scale_fill_manual(values=c("asian" = "#FFEDA0", "black" = "#BD0026"
+                             , "hispanic" = "#FC4E2A"
+                             , "native american" = "#FEB24C"
+                             , "other" = "#FD8D3C", "unknown" = "#800026")) +
+  theme_void() +
+  coord_fixed() + 
+  guides(fill="none", lty="none") +
+  theme(panel.background = element_rect(fill = "black", colour="black")) 
+
+#base_plot1
+
+# add blurred circles
+blastocyst1 <- base_plot1 +
+  with_blur(
+    geom_polygon(data=filter(dat_gg2_upper,blurred==1)
+                 ,aes(fill=compare_broad),alpha=0.5)
+    , sigma = 5
+  ) +
+  with_blur(
+    geom_path(data=filter(dat_gg2_point,blurred==1)
+              , linewidth=1
+              , color="#ffffff90") 
+    , sigma = 5
+  ) +
+  with_blur(
+    geom_polygon(data=filter(dat_gg2_lower,blurred==1),aes(fill=compare_broad))
+    , sigma = 5
+  ) 
+
+blastocyst1
+```
+
+One of the things that struck me during our review was just how many different studies identified large racial and ethnic disparities in maternal morbidity and mortality outcomes AFTER accounting for many different "explanations" -- differences in age, income, education, hospital type, geography -- and measured in many different ways -- blood transfusions, hysterectomy, sepsis, admission to intensive care unit, . . .
+
+In this piece, each circle represents an estimated risk ratio for the risk of a maternal morbidity and mortality outcome; the shading around the circle represents uncertainty around that estimate. As each article we reviewed used "white" (or "White" or "Non-Hispanic White") as the reference group, the white circle in the middle represents the risk in the referent group. The radius of each of the other circles is relative to the increased risk among other race and ethnicity groups -- the larger the circle, the larger the risk. The circles that are blurred represent groups that were either of "Missing/Unknown" race and ethnicity or "Other" race and ethnicity; the blur suggests we need to refocus our microscope to get a clearer picture of the people in these groups.
+
+Why the microscope reference? For this piece, I drew upon the imagery of a blastocyst. By the 5th or 6th day after fertilization, an embryo is in the blastocyst stage (a rapidly dividing ball of cells). In the data art, each circle represents evidence of an inequity and together the circles accumulate and speak to the volume of evidence that may seem inconceivable, yet is undeniable.
+
+[![](images/embryo-day.jpg){fig-align="center"}](https://www.utahfertility.com/understanding-embryo-grading/)
+
+```{r}
+#| eval: false
+
+# For “legend”: Try to create one image per circle where the rest is greyed out and only one circle is highlighted with information on what is represented (order by paper, chronological)
+```

@@ -1,0 +1,40 @@
+---
+title: "Acknowledgements & Inspiration"
+format: html
+---
+
+There is a lot of varied and compelling data art we found online. We learned about data art, and sometimes drew inspiration in our own works, from many of these data artists (most of whom self-identify with some other title, "graphic designer", "information designer", "data journalist", "illustrator" . . .):
+
+-   Giorgia Lupi and Stefanie Posavec's [Dear Data Project](http://www.dear-data.com/theproject) 
+
+-   Sonja Kuijper's ["A view on despair"](https://www.studioterp.nl/a-view-on-despair-a-datavisualization-project-by-studio-terp/)
+
+-   [Mona Chalabi](https://monachalabi.com/)
+
+-   [Nathalie Miebach](http://nathaliemiebach.com/portfolio.html) and [The Weather Scores Project](http://nathaliemiebach.com/weatherscores.html)
+
+-   [Environmental Graphiti](https://www.environmentalgraphiti.org/series-folder)
+
+-   [Leslie Roberts](https://leslierobertsart.com/section/425019-Recent-works-on-panel.html)
+
+-   [Gladys Estolas](https://www.stoxart.com/)
+
+-   [Chris Jordan](http://www.chrisjordan.com/gallery/rtn2/#gyre)
+
+-   [Climate change displayed with shower tiles](https://flowingdata.com/2020/05/13/climate-change-displayed-with-shower-tiles/)
+
+-   [Baby's sleep data visualized with blanket](https://flowingdata.com/2019/07/25/blanket-pattern-visualizes-babys-sleep-data/)
+
+-   [Information is Beautiful awards](https://www.informationisbeautifulawards.com/)
+
+-   [Ted Talks on art made from data](https://www.ted.com/playlists/201/art_from_data)
+
+-   *Information is Beautiful* by David McCandless (book)
+
+-   *Knowledge is Beautiful* by David McCandless (book)
+
+Catherine D'Ignazio and Lauren Klein's [*Data Feminism* chapter on elevating emotion and embodiment](https://data-feminism.mitpress.mit.edu/pub/5evfe9yd/release/5) also provides some powerful examples of data art, including a data performance. We highly recommend reading the whole book, which is {AMAZING}. In our work, we try to put into practice the data feminism principles that they've articulated so well.
+
+-   *Data Feminism* by Catherine D'Ignazio and Lauren Klein
+
+-   *Living in Data* by Jer Thorp

@@ -1,0 +1,127 @@
+---
+title: It's in the Groundwater
+author: "Kat Correia"
+date: "July 2021"
+format: html
+---
+
+```{r}
+#| label: setup
+#| include: false
+knitr::opts_chunk$set(echo = FALSE, messages = FALSE, warning=FALSE)
+
+library(tidyverse)
+library(jpeg)       ## to import jpeg images into R
+library(ggpubr)     ## to add image as background of ggplot
+library(gganimate)  ## to add animation/movement to plot
+library(ggforce)    ## for narrative
+```
+
+```{r}
+#| label: data-prep
+
+effects_table_pregcomp <- readRDS("Data/effects_table_pregcomp.Rds")
+
+PRMR_dat0 <- effects_table_pregcomp %>%
+  filter(doi=="10.1016/j.ajog.2021.02.028" & stratified=="Yes") 
+
+# need to add rows for Noncore
+noncore <- data.frame(stratified=rep("Yes",5), stratgrp=rep("urban-rural category - noncore",5)
+                      , outcome="pregnancy-related mortality"
+                      , measure="number of pregnancy-related deaths per 100,000 live births"
+                      , comparison=rep(6,5)
+                      , compare=c("White", "Black", "American Indian or Alaska Native"
+                                     , "Asian or Pacific Islander", "Hispanic")
+                      , point = c(19.7, 59.3, 37.5, NA_real_, 9.8)
+                      , lower = c(16.9, 46.2, 22.6, NA_real_, 4.9)
+                      , upper = c(22.8, 74.9, 58.6, NA_real_, 17.5))
+
+# join data together
+PRMR_dat <- PRMR_dat0 %>%
+  bind_rows(noncore) %>%
+  separate(stratgrp, into=c("blah","urban_rural"), sep=" - ") %>%
+  # order the categories correctly from most urban --> most rural
+  mutate(urban_rural = factor(urban_rural, levels = c("large metro", "medium metro", "small metro", "micropolitan", "noncore"))
+         , compare_fct = factor(compare, levels = c("White", "Hispanic", "Asian or Pacific Islander", "American Indian or Alaska Native", "Black")))
+```
+
+```{r}
+#| label: figure-gw
+#| message: false
+
+# joy won's images (above ground)! 
+# below ground: poisson disc sampling in R
+# https://coolbutuseless.github.io/2019/06/25/poissoned-a-package-for-poisson-disc-sampling/
+# https://www.williamrchase.com/post/textures-and-geometric-shapes-12-months-of-art-july/
+# to do: update below ground so just a gradient?
+img_bg <- readJPEG("images/surf-ombre.jpg")
+#img_bg <- readJPEG("images/surf-ombre2.jpg")
+#img3 <- readJPEG("images/surf-city-landscape.jpg")
+  
+# ------------------------- set up dat  --------------------------
+
+PRMR_updated3 <- PRMR_dat %>%
+  arrange(compare_fct, urban_rural) %>%
+  mutate(loc = row_number()*4 - 2)
+
+# generate sequence between lower and upper
+PRMR_updated4 <- data.frame()
+for (i in 1:nrow(PRMR_updated3)){
+  if (!is.na(PRMR_updated3$lower[i])){
+    y_prmr <- seq(PRMR_updated3$lower[i],PRMR_updated3$upper[i],by=0.5)
+    temp <- as.data.frame(y_prmr) %>%
+      bind_cols(PRMR_updated3[i,])
+    PRMR_updated4 <- bind_rows(PRMR_updated4,temp)
+  }
+}
+
+# create path that isn't straight
+PRMR_updated4 <- PRMR_updated4 %>%
+  mutate(xnew = jitter(loc))
+
+# ------------------------- plot  --------------------------
+
+gw1 <- ggplot() +
+  background_image(img_bg) +
+  geom_path(data=PRMR_updated4, aes(x=xnew, y=y_prmr, group=loc
+                                    , color=compare_fct)
+            , linewidth=1) +
+  scale_color_brewer(palette="Blues") +
+  scale_y_reverse(limits=c(80,-90)) +
+  guides(color="none") +
+  theme_void()
+
+#gw1
+
+# ------------------- animate the water dripping down -----------
+
+gw1_anim <- gw1 +
+  transition_reveal(along = y_prmr) +
+  ease_aes("cubic-in") +
+  enter_grow() +
+  enter_fade(alpha = 0.8)
+
+animate(gw1_anim, nframes = 100, fps = 5)
+```
+
+Bayard Love and Deena Hayes-Greene of the [Racial Equity Institute](https://racialequityinstitute.org/) developed [the groundwater approach metaphor](https://racialequityinstitute.org/groundwater-approach/) to help build a practical understanding of structural racism. Our SURF group talked a lot about this metaphor, and the imagery of groundwater was in my mind while creating this piece.
+
+In a 2021 article published in the *American Journal of Obstetrics and Gynecology* titled "[Urban-rural differences in pregnancy-related deaths, United States, 2011-2016](https://pubmed.ncbi.nlm.nih.gov/33640361/)", researchers "sought to compare pregnancy-related mortality across and within urban and rural counties by race and ethnicity and age". The following table is presented in the article:
+
+![](images/table3.png){fig-align="center"}
+
+In this animated data art piece, each confidence interval in Table 3 is represented as a line of water dripping deeper and deeper into the ground. Different colors are used to distinguish the different race and ethnicity groups, ordered by lowest to highest risk. A few notable observations:
+
+-   within each race and ethnicity group, pregnancy-related deaths increase the more rural a county is
+
+-   within each urban-rural categorization, pregnancy-related deaths are lowest among "White" or "Hispanic" and highest among "Black" mothers
+
+-   there is substantial uncertainty around some of the estimates, particularly for the "American Indian or Alaska Native" group
+
+Most notably, the highest PRMR among "White" mothers (19.7 deaths per 100,000 births, 95% CI: 16.9 - 22.8, in the most rural counties) is much lower than the lowest PRMR among "Black" mothers (36.7 deaths per 100,000 births, 95% CI: 34.3 - 39.3, in the most urban counties).
+
+```{r}
+#| eval: false
+
+# Add "legend"
+```

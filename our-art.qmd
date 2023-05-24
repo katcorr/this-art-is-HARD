@@ -1,0 +1,5 @@
+---
+title: our-art
+listing:
+  contents: posts
+---

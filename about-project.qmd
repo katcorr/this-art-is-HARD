@@ -1,0 +1,36 @@
+---
+title: "About the Project"
+format: html
+---
+
+## **Background**
+
+Racism in medicine is pervasive and harmful. In [this 2021 New England Journal of Medicine article](https://www.nejm.org/doi/full/10.1056/NEJMms2025396), the authors note that \"Despite the long and ongoing history of racism, empirical research showing its impact on health is rarely published in major medical journals. Although we find the evidence of the health effects of structural racism to be convincing, and supported by more than a century of wide-ranging theoretical and empirical scholarship, it remains marginalized and eclipsed by other research priorities.\"
+
+In summer 2021 we began a review on the racial and ethnic disparities reported in the top obstetrics and gynecology journals. We set out to identify and review the research around disparities published in major obstetrics and gynecology journals, seeking to understand differences in accessing care, differences in the care received, and differences in health outcomes. But we didn\'t plan to stop there, with our noses buried in academic journals. We wanted to take those numbers, statistics, data, and create art: art to amplify the research, to bring the research to the community and people who are impacted (i.e., everyone), and \[eventually\] to welcome *everyone* in to the conversation on how to address the issues.
+
+We used the [Groundwater Approach](https://www.racialequityinstitute.com/groundwaterapproach) (a metaphor developed by the Racial Equity Institute) as a lens to view our work. Racism in obstetrics and gynecology is not an isolated issue, but part of the structural racism that permeates all sectors of our society.
+
+In summer 2021, after collecting data from 36 articles that focused on maternal morbidity and mortality, we used this dataset to create data art. By doing this, we put the embodiment of emotions back into the data so that they become more than nameless, faceless numbers, a large part of the more general movement towards data feminism and feminist science studies overall.
+
+Moving forward, we plan to review the remaining 200+ articles identified to complete a narrative review and create more data art. Our research contributes to the naming and dismantling of racism that exists in obstetrics and gynecology today, and it seeks to make this information accessible to inspire change and further research.
+
+## **Review Process**
+
+Following the [PROSPERO](https://www.crd.york.ac.uk/prospero/) and [PRISMA](http://www.prisma-statement.org/Protocols/WhyProtocols) guidelines for systematic reviews, we developed a review protocol that defined our review question, search criteria, data extraction process, and strategy for data synthesis. We searched the the top eight journals in obstetrics and gynecology as ranked by the Scimago Journal Ranking system: Human Reproduction Update, American Journal of Obstetrics and Gynecology, Ultrasound in Obstetrics & Gynecology, Obstetrics & Gynecology, Human Reproduction, Fertility & Sterility, BJOG: an International Journal of Obstetrics & Gynecology, and Gynecologic Oncology. We searched these journals in the PubMed database for articles published between January 1, 2010 and June 10, 2021 using the terms \"racial disparit\*\" , \"racial bias\" , \"racism\" , \"discrimination\" , \"minorit\*\" , among other terms related to the subject area. 
+
+We included prospective observational cohort studies, retrospective observational cohort studies, case-control studies, cross-sectional studies, randomized controlled trials, and registry studies. Qualitative studies, reviews with no new data, case reports, and studies outside the United States were excluded. 
+
+Over 750 articles were identified from our initial search. Each article was randomly assigned to two independent reviewers, and each reviewer assessed the article\'s relevance and eligiblity for our review based on the abstract. Discrepancies regarding eligibility were solved through discussion between the reviewers. After screening, 251 articles were identified as eligible for inclusion and systematically reviewed. Each eligible article was again randomly assigned to two independent reviewers, with discrepancies being resolved through discussion.
+
+A data extraction spreadsheet was created for each reviewer to systematically and independently enter data from the eligible articles using Google forms.  The spreadsheet recorded quality assessment of the articles, using modified questions from the modified versions of the NIH Quality Assessment tool checklist and the Joanna Briggs Institute critical appraisal tool checklist. Other information recorded in the spreadsheet included: doi, research aim, study location, study type, study end and start date, data source, themes addressed ( access-to-care, care provided, and/or health outcomes), sample sizes for each race or ethnicity category, statistical model information (stratification or subanalysis, outcome measure, reference group, covariates), and model effect estimates for each comparison.
+
+## **The Data**
+
+In an effort to make research more transparent and accessible, we are providing the data we collected about the journal articles :
+
+-   in [this Google sheet](https://docs.google.com/spreadsheets/d/1CY3Ct-vVRJRBWjK5wNtYhhfmS8h4bkDDWYVqs-Lv6Jk/edit?usp=sharing) for those who want to work with the raw data directly
+
+-   in [this interactive website](http://obgyn-shiny.shinyapps.io/obgyn-disp) which provides a more user-friendly interface to explore the raw data
+
+If you have trouble accessing either link, would like help getting the data in a different format, or have other questions, please contact us using [the contact form](https://correialab.wordpress.amherst.edu/contact-us/)!

@@ -1,0 +1,24 @@
+---
+title: "Half Hearted"
+author: "Alexander Brandfonbrener"
+date: "July 30, 2021"
+format: html
+---
+
+::: columns
+::: {.column width="50%"}
+Black patients are disproportionally more vulnerable to death during childbirth, even after evaluating confounding factors. This graphic features the most startling odds ratios collected in our narrative review. The large hearts illustrate the severe maternal morbidity statistic, while number of smaller hearts reflect the magnitude of the odds ratio.
+:::
+
+::: {.column width="50%"}
+![Half Hearted by Alexander Brandfonbrener](images/surf-artwork-alex-b.jpg)
+:::
+:::
+
+[Sources:]{.smaller}
+
+[Siddiqui A, Azria E, Egorova N, Deneux-Tharaux C, Howell EA. Contribution of Prepregnancy Obesity to Racial and Ethnic Disparities in Severe Maternal Morbidity. Obstet Gynecol. 2021 May 1;137(5):864-872. doi: 10.1097/AOG.0000000000004356. PMID: 33831920.]{.smaller}
+
+[Creanga AA, Shapiro-Mendoza CK, Bish CL, Zane S, Berg CJ, Callaghan WM. Trends in ectopic pregnancy mortality in the United States: 1980-2007. Obstet Gynecol. 2011 Apr;117(4):837-843. doi: 10.1097/AOG.0b013e3182113c10. PMID: 21422853.]{.smaller}
+
+[Malhamé I, Danilack VA, Raker CA, Hardy EJ, Spalding H, Bouvier BA, Hurlburt H, Vrees R, Savitz DA, Mehta N. Cardiovascular severe maternal morbidity in pregnant and postpartum women: development and internal validation of risk prediction models. BJOG. 2021 Apr;128(5):922-932. doi: 10.1111/1471-0528.16512. Epub 2020 Nov 4. PMID: 32946639.]{.smaller}

@@ -1,0 +1,14 @@
+---
+title: "Centering Whiteness"
+author: "Gillian Richard"
+date: "July 30, 2021"
+image: images/gillian-richard-still.png
+format: html
+---
+
+{{< video https://www.youtube.com/watch?v=lTO3fVt7SEs&t=2s >}}
+
+
+This movement piece focuses on the centering of whiteness as the "norm" in medical research through the use of white as the reference group. The duration of the piece represents the percentage of articles identified in our review that use white as the reference group. I also represent the percentages of articles that cover three different themes: access to care, treatment received, and health outcome through the progression of body parts used. This shows that the majority of pieces focus on health outcomes rather than the other two themes. Focusing on the end result rather than the process re-emphasizes the role of whiteness that ignores the racism along the process that may lead to differing health outcomes. I also connected the theme of this piece to similar movements in the dance and music world through the use of a balletic style of dance (ballet has been traditionally viewed as the basis for all other dance which ignores the role of the Africanist presence in dance) and a score from composer Florence Price. Price is recognized as the first African-American symphonic composer. Lastly, the piece was filmed in Charleston, South Carolina, which connects to the horrific beginning of gynecology in the South with J. Marion Sims working on plantations and taking advantage of Black women. This piece strives to connect the centering of whiteness in gynecological research, dance, and music to emphasize the role of white supremacy in systematic racism.
+
+For More Information: Medical Bondage by Deirdre Cooper Owens, Digging the Africanist Presence in American Performance: Dance and Other Contexts by Brenda D. Gottschild, "The Rediscovery of Florence Price" by Alex Ross

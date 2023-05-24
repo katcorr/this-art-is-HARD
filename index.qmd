@@ -1,0 +1,21 @@
+---
+title: ""
+listing:
+  contents: posts
+  type: grid
+  sort: "date desc"
+---
+
+# **this art is . . .**
+
+-   about **H**ealth **A**nd **R**acial **D**isparities
+
+-   **H**ighlighting **A**ctual **R**eal **D**ata (e.g., data published in scientific journals)
+
+-   **H**oping to **A**mplify **R**esearch on racial **D**isparities in obstetrics & gynecology
+
+-   **H**elping (more people) **A**ccess **R**eproductive medicine **D**ata
+
+-   **H**olding us **A**ccountable for **R**ectifying **D**isparities
+
+Okay, enough with the acronyms. The project delves into hard things: racism, maternal morbidity and mortality, gynecological cancer. Beginning summer 2021, working with a group of creative undergraduate students, we set out to review the literature on racial disparities reported in the top Obstetrics & Gynecology journals from 2010-2021. We are creating data art based on the literature review.
