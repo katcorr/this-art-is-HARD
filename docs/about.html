@@ -30,8 +30,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -62,38 +60,7 @@ ul.task-list li input[type="checkbox"] {
     "search-submit-button-title": "Submit"
   }
 }</script>
-<script>
 
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-title','listing-author','listing-date','listing-image','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
-
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 </head>
 
@@ -115,7 +82,7 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" rel="" target="" aria-current="page"><i class="bi bi-house-heart" role="img">
+    <a class="nav-link" href="./index.html" rel="" target=""><i class="bi bi-house-heart" role="img">
 </i> 
  <span class="menu-text"><strong>this art is . . .</strong></span></a>
   </li>  
@@ -126,7 +93,7 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">What is Data Art?</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./about.html" rel="" target="">
+    <a class="nav-link active" href="./about.html" rel="" target="" aria-current="page">
  <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item">
@@ -151,145 +118,96 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<section id="this-art-is-.-.-." class="level1">
-<h1><strong>this art is . . .</strong></h1>
-<ul>
-<li><p>about <strong>H</strong>ealth <strong>A</strong>nd <strong>R</strong>acial <strong>D</strong>isparities</p></li>
-<li><p><strong>H</strong>ighlighting <strong>A</strong>ctual <strong>R</strong>eal <strong>D</strong>ata (e.g., data published in scientific journals)</p></li>
-<li><p><strong>H</strong>oping to <strong>A</strong>mplify <strong>R</strong>esearch on racial <strong>D</strong>isparities in obstetrics &amp; gynecology</p></li>
-<li><p><strong>H</strong>elping (more people) <strong>A</strong>ccess <strong>R</strong>eproductive medicine <strong>D</strong>ata</p></li>
-<li><p><strong>H</strong>olding us <strong>A</strong>ccountable for <strong>R</strong>ectifying <strong>D</strong>isparities</p></li>
-</ul>
-<p>Okay, enough with the acronyms. The project delves into hard things: racism, maternal morbidity and mortality, gynecological cancer. Beginning summer 2021, working with a group of creative undergraduate students, we set out to review the literature on racial disparities reported in the top Obstetrics &amp; Gynecology journals from 2010-2021. We are creating data art based on the literature review.</p>
-
-
-
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">About the Project</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">About Us</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false">Acknowledgements &amp; Inspiration</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<section id="background" class="level3">
+<h3 class="anchored" data-anchor-id="background"><strong>Background</strong></h3>
+<p>Racism in medicine is pervasive and harmful. In <a href="https://www.nejm.org/doi/full/10.1056/NEJMms2025396">this 2021 New England Journal of Medicine article</a>, the authors note that “Despite the long and ongoing history of racism, empirical research showing its impact on health is rarely published in major medical journals. Although we find the evidence of the health effects of structural racism to be convincing, and supported by more than a century of wide-ranging theoretical and empirical scholarship, it remains marginalized and eclipsed by other research priorities.”</p>
+<p>In summer 2021 we began a review on the racial and ethnic disparities reported in the top obstetrics and gynecology journals. We set out to identify and review the research around disparities published in major obstetrics and gynecology journals, seeking to understand differences in accessing care, differences in the care received, and differences in health outcomes. But we didn’t plan to stop there, with our noses buried in academic journals. We wanted to take those numbers, statistics, data, and create art: art to amplify the research, to bring the research to the community and people who are impacted (i.e., everyone), and [eventually] to welcome <em>everyone</em> in to the conversation on how to address the issues.</p>
+<p>We used the <a href="https://www.racialequityinstitute.com/groundwaterapproach">Groundwater Approach</a> (a metaphor developed by the Racial Equity Institute) as a lens to view our work. Racism in obstetrics and gynecology is not an isolated issue, but part of the structural racism that permeates all sectors of our society.</p>
+<p>In summer 2021, after collecting data from 36 articles that focused on maternal morbidity and mortality, we used this dataset to create data art. By doing this, we put the embodiment of emotions back into the data so that they become more than nameless, faceless numbers, a large part of the more general movement towards data feminism and feminist science studies overall.</p>
+<p>Moving forward, we plan to review the remaining 200+ articles identified to complete a narrative review and create more data art. Our research contributes to the naming and dismantling of racism that exists in obstetrics and gynecology today, and it seeks to make this information accessible to inspire change and further research.</p>
 </section>
+<section id="review-process" class="level3">
+<h3 class="anchored" data-anchor-id="review-process"><strong>Review Process</strong></h3>
+<p>Following the <a href="https://www.crd.york.ac.uk/prospero/">PROSPERO</a> and <a href="http://www.prisma-statement.org/Protocols/WhyProtocols">PRISMA</a> guidelines for systematic reviews, we developed a review protocol that defined our review question, search criteria, data extraction process, and strategy for data synthesis. We searched the the top eight journals in obstetrics and gynecology as ranked by the Scimago Journal Ranking system: Human Reproduction Update, American Journal of Obstetrics and Gynecology, Ultrasound in Obstetrics &amp; Gynecology, Obstetrics &amp; Gynecology, Human Reproduction, Fertility &amp; Sterility, BJOG: an International Journal of Obstetrics &amp; Gynecology, and Gynecologic Oncology. We searched these journals in the PubMed database for articles published between January 1, 2010 and June 10, 2021 using the terms “racial disparit*” , “racial bias” , “racism” , “discrimination” , “minorit*” , among other terms related to the subject area.</p>
+<p>We included prospective observational cohort studies, retrospective observational cohort studies, case-control studies, cross-sectional studies, randomized controlled trials, and registry studies. Qualitative studies, reviews with no new data, case reports, and studies outside the United States were excluded.</p>
+<p>Over 750 articles were identified from our initial search. Each article was randomly assigned to two independent reviewers, and each reviewer assessed the article’s relevance and eligiblity for our review based on the abstract. Discrepancies regarding eligibility were solved through discussion between the reviewers. After screening, 251 articles were identified as eligible for inclusion and systematically reviewed. Each eligible article was again randomly assigned to two independent reviewers, with discrepancies being resolved through discussion.</p>
+<p>A data extraction spreadsheet was created for each reviewer to systematically and independently enter data from the eligible articles using Google forms. The spreadsheet recorded quality assessment of the articles, using modified questions from the modified versions of the NIH Quality Assessment tool checklist and the Joanna Briggs Institute critical appraisal tool checklist. Other information recorded in the spreadsheet included: doi, research aim, study location, study type, study end and start date, data source, themes addressed ( access-to-care, care provided, and/or health outcomes), sample sizes for each race or ethnicity category, statistical model information (stratification or subanalysis, outcome measure, reference group, covariates), and model effect estimates for each comparison.</p>
+</section>
+<section id="the-data" class="level3">
+<h3 class="anchored" data-anchor-id="the-data"><strong>The Data</strong></h3>
+<p>In an effort to make research more transparent and accessible, we are providing the data we collected about the journal articles:</p>
+<ul>
+<li><p>in <a href="https://docs.google.com/spreadsheets/d/1CY3Ct-vVRJRBWjK5wNtYhhfmS8h4bkDDWYVqs-Lv6Jk/edit?usp=sharing">this Google sheet</a> for those who want to work with the raw data directly</p></li>
+<li><p>in <a href="http://obgyn-shiny.shinyapps.io/obgyn-disp">this interactive website</a> which provides a more user-friendly interface to explore the raw data</p></li>
+</ul>
+<p>If you have trouble accessing either link, would like help getting the data in a different format, or have other questions, please contact us using the contact form!</p>
+</section>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<p>Are we a lab or are we a studio? Are we scientists or artists? Why do we have to choose just one box? Let’s break down this false binary: we’re both! We work with data. We create art. Meet our contributors, statisticians, data scientists, dancers, illustrators . . .</p>
+<table class="table">
+<colgroup>
+<col style="width: 26%">
+<col style="width: 73%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><img src="images/alex-profile.jpg" class="img-fluid" width="600"></td>
+<td>Alexander Brandfonbrener is a English and Statistics Major at Amherst College, entering his junior year. He spends his free time on campus working as an editor for The Student and writing a graphic novel. He was drawn to this project because it exemplifies an intersection between statistics and visual art, and because racism in medicine is such an impactful issue.</td>
+</tr>
+<tr class="even">
+<td><img src="images/gillian-profile.jpg" class="img-fluid" width="600"></td>
+<td>Gillian Richard is a sophomore Economics major at Amherst College. On campus, she is involved in the Intersections dance group and the Sailing Team as well as being a TA for the Theater and Dance Department. She also currently teaches for Charleston Academy of Musical Theatre and has performed in about 40 shows over the past 15 years including being the dance captain for multiple professional shows with Charleston Stage. She was drawn to this project due to the possibility of combining dance and data as well as her interest in gynecological research and reproductive justice.</td>
+</tr>
+<tr class="odd">
+<td><img src="images/joy-profile.jpg" class="img-fluid"></td>
+<td>Joy Won is an Education Studies Major at Amherst College interested in the intersections between art and statistics. At home she proudly acts as a cat butler and on campus can be seen val-sitting with a cup of tea or doing some last minute reading at level C of Frost. She was interested in joining the Correia lab to explore how data art can be a medium by which statisticians can portray data to fight against structural racism specifically in the context of medical disparities.</td>
+</tr>
+<tr class="even">
+<td><img src="images/tracy-profile.jpg" class="img-fluid" width="300"></td>
+<td>Tracy Huang is a Statistics and Psychology Major at Amherst College. On campus, she sings in the Women’s Chorus and enjoys spending free time reading and doing crafts such as cross-stitch. She was drawn to the project because of the opportunity to not only delve into the data of racial disparities in obstetrics/gynecology, but to use that data and translate it into artistic pieces that combine her love of statistics and art.</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
+<p>There is a lot of varied and compelling data art we found online. We learned about data art, and sometimes drew inspiration in our own works, from many of these data artists (most of whom self-identify with some other title, “graphic designer”, “information designer”, “data journalist”, “illustrator” . . .):</p>
+<ul>
+<li><p>Giorgia Lupi and Stefanie Posavec’s <a href="http://www.dear-data.com/theproject">Dear Data Project</a></p></li>
+<li><p>Sonja Kuijper’s <a href="https://www.studioterp.nl/a-view-on-despair-a-datavisualization-project-by-studio-terp/">“A view on despair”</a></p></li>
+<li><p><a href="https://monachalabi.com/">Mona Chalabi</a></p></li>
+<li><p><a href="http://nathaliemiebach.com/portfolio.html">Nathalie Miebach</a> and <a href="http://nathaliemiebach.com/weatherscores.html">The Weather Scores Project</a></p></li>
+<li><p><a href="https://www.environmentalgraphiti.org/series-folder">Environmental Graphiti</a></p></li>
+<li><p><a href="https://leslierobertsart.com/section/425019-Recent-works-on-panel.html">Leslie Roberts</a></p></li>
+<li><p><a href="https://www.stoxart.com/">Gladys Estolas</a></p></li>
+<li><p><a href="http://www.chrisjordan.com/gallery/rtn2/#gyre">Chris Jordan</a></p></li>
+<li><p><a href="https://flowingdata.com/2020/05/13/climate-change-displayed-with-shower-tiles/">Climate change displayed with shower tiles</a></p></li>
+<li><p><a href="https://flowingdata.com/2019/07/25/blanket-pattern-visualizes-babys-sleep-data/">Baby’s sleep data visualized with blanket</a></p></li>
+<li><p><a href="https://www.informationisbeautifulawards.com/">Information is Beautiful awards</a></p></li>
+<li><p><a href="https://www.ted.com/playlists/201/art_from_data">Ted Talks on art made from data</a></p></li>
+<li><p><em>Information is Beautiful</em> by David McCandless (book)</p></li>
+<li><p><em>Knowledge is Beautiful</em> by David McCandless (book)</p></li>
+</ul>
+<p>Catherine D’Ignazio and Lauren Klein’s <a href="https://data-feminism.mitpress.mit.edu/pub/5evfe9yd/release/5"><em>Data Feminism</em> chapter on elevating emotion and embodiment</a> also provides some powerful examples of data art, including a data performance. We highly recommend reading the whole book. In our work, we try to put into practice the data feminism principles that they’ve articulated so well.</p>
+<ul>
+<li><p><em>Data Feminism</em> by Catherine D’Ignazio and Lauren Klein</p></li>
+<li><p><em>Living in Data</em> by Jer Thorp</p></li>
+</ul>
+</div>
+</div>
+</div>
 
-<div class="quarto-listing quarto-listing-container-grid" id="listing-listing">
-<div class="list grid quarto-listing-cols-3">
-<div class="g-col-1" data-index="0" data-listing-date-sort="1632974400000" data-listing-file-modified-sort="1684898348919" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3">
-<a href="./posts/joy-won.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top"><img src="posts\images\surf-artwork-joy-won.jpeg" style="height: 150px;"  class="thumbnail-image card-img"/></p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Trees:Forest
-</h5>
-<div class="card-text listing-description">
-The well-known idiom, “Don’t See the Forest for the Trees,” was a key quote in thinking about the obstetrics and gynecology data we worked with this past summer in the…
-</div>
-<div class="card-attribution card-text-small justify">
-<div class="listing-author">
-Joy Won
-</div>
-<div class="listing-date">
-Sep 30, 2021
-</div>
-</div>
-</div>
-</div>
-</a>
-</div>
-<div class="g-col-1" data-index="1" data-listing-date-sort="1627617600000" data-listing-file-modified-sort="1684899505747" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
-<a href="./posts/alex-brandfonbrener.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top"><img src="posts\images\surf-artwork-alex-b.jpg" style="height: 150px;"  class="thumbnail-image card-img"/></p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Half Hearted
-</h5>
-<div class="card-text listing-description">
-Black patients are disproportionally more vulnerable to death during childbirth, even after evaluating confounding factors. This graphic features the most startling odds…
-</div>
-<div class="card-attribution card-text-small justify">
-<div class="listing-author">
-Alexander Brandfonbrener
-</div>
-<div class="listing-date">
-Jul 30, 2021
-</div>
-</div>
-</div>
-</div>
-</a>
-</div>
-<div class="g-col-1" data-index="2" data-listing-date-sort="1627617600000" data-listing-file-modified-sort="1684900611058" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2">
-<a href="./posts/gillian-richard.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img src="./posts/images/gillian-richard-still.png" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Centering Whiteness
-</h5>
-<div class="card-text listing-description">
-This movement piece focuses on the centering of whiteness as the “norm” in medical research through the use of white as the reference group. The duration of the piece…
-</div>
-<div class="card-attribution card-text-small justify">
-<div class="listing-author">
-Gillian Richard
-</div>
-<div class="listing-date">
-Jul 30, 2021
-</div>
-</div>
-</div>
-</div>
-</a>
-</div>
-<div class="g-col-1" data-index="3" data-listing-date-sort="1625112000000" data-listing-file-modified-sort="1684903245433" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7">
-<a href="./posts/kat-correia-01.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top"><img src="posts\kat-correia-01_files\figure-html\figure-blast-1.png" style="height: 150px;"  class="thumbnail-image card-img"/></p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-An In<em>conceiv</em>able Blastocyst
-</h5>
-<div class="card-text listing-description">
-One of the things that struck me during our review was just how many different studies identified large racial and ethnic disparities in maternal morbidity and mortality…
-</div>
-<div class="card-attribution card-text-small justify">
-<div class="listing-author">
-Kat Correia
-</div>
-<div class="listing-date">
-Jul 1, 2021
-</div>
-</div>
-</div>
-</div>
-</a>
-</div>
-<div class="g-col-1" data-index="4" data-listing-date-sort="1625112000000" data-listing-file-modified-sort="1684905353489" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5">
-<a href="./posts/kat-correia-02.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top"><img src="posts\kat-correia-02_files\figure-html\figure-gw-1.gif" style="height: 150px;"  class="thumbnail-image card-img"/></p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-It’s in the Groundwater
-</h5>
-<div class="card-text listing-description">
-Bayard Love and Deena Hayes-Greene of the Racial Equity Institute developed the groundwater approach metaphor to help build a practical understanding of structural racism. Our SURF group talked a lot about this metaphor, and…
-</div>
-<div class="card-attribution card-text-small justify">
-<div class="listing-author">
-Kat Correia
-</div>
-<div class="listing-date">
-Jul 1, 2021
-</div>
-</div>
-</div>
-</div>
-</a>
-</div>
-</div>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
-</div></main> <!-- /main -->
+
+
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

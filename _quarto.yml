@@ -11,12 +11,8 @@ website:
     right:
       - href: what-is-data-art.qmd
         text: What is Data Art?
-      - href: about-project.qmd
-        text: About the Project
-      - href: about-us.qmd
-        text: About Us
-      - href: acknowledge.qmd
-        text: Acknowledgements & Inspiration
+      - href: about.qmd
+        text: About 
       - href: contact-us.qmd
         text: Contact Us
 
