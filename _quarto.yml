@@ -17,6 +17,8 @@ website:
         text: About Us
       - href: acknowledge.qmd
         text: Acknowledgements & Inspiration
+      - href: contact-us.qmd
+        text: Contact Us
 
 format:
   html: 
