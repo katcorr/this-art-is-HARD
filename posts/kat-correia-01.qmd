@@ -16,6 +16,8 @@ library(viridis)      ## for color palettes
 library(RColorBrewer) ## for color palettes
 library(ggfx)         ## for blur
 library(ggforce)      ## for narrative
+library(showtext)     ## for Google fonts
+library(animation)    ## for combining static plots into gif
 ```
 
 ```{r}
@@ -92,6 +94,28 @@ dat_gg2_upper <- circleLayoutVertices(dat_circ %>%
 ```{r}
 #| label: figure-blast
 
+# yellow (least risk) --> dark red (most risk)
+# color_pal <- c("asian" = "#FFEDA0"
+#                , "black" = "#BD0026"
+#                , "hispanic" = "#FC4E2A"
+#                , "native american" = "#FEB24C"
+#                , "other" = "#FD8D3C"
+#                , "unknown" = "#800026")
+
+# color_pal <- c("asian" = "#2A788EFF"
+#                , "black" = "#FDE725FF"
+#                , "hispanic" = "#7AD151FF"
+#                , "native american" = "#22A884FF"
+#                , "other" = "#414487FF"
+#                , "unknown" = "#440154FF")
+
+color_pal <- c("asian" = "#0D0887FF"
+               , "black" = "#F0F921FF"
+               , "hispanic" = "#B12A90FF"
+               , "native american" = "#6A00A8FF"
+               , "other" = "#FCA636FF"
+               , "unknown" = "#E16462FF")
+
 # unblurred part of plot
 base_plot1 <- ggplot(dat_gg2, aes(x=x,y=y, group=id)) + 
   geom_path(data=filter(dat_gg2, blurred==0)
@@ -102,10 +126,7 @@ base_plot1 <- ggplot(dat_gg2, aes(x=x,y=y, group=id)) +
                ,aes(fill=compare_broad)) +
   geom_polygon(data=filter(dat_gg2_upper, blurred==0)
                ,aes(fill=compare_broad),alpha=0.5) +
-  scale_fill_manual(values=c("asian" = "#FFEDA0", "black" = "#BD0026"
-                             , "hispanic" = "#FC4E2A"
-                             , "native american" = "#FEB24C"
-                             , "other" = "#FD8D3C", "unknown" = "#800026")) +
+  scale_fill_manual(values=color_pal) +
   theme_void() +
   coord_fixed() + 
   guides(fill="none", lty="none") +
@@ -138,12 +159,155 @@ One of the things that struck me during our review was just how many different s
 
 In this piece, each circle represents an estimated risk ratio for the risk of a maternal morbidity and mortality outcome; the shading around the circle represents uncertainty around that estimate. As each article we reviewed used "white" (or "White" or "Non-Hispanic White") as the reference group, the white circle in the middle represents the risk in the referent group. The radius of each of the other circles is relative to the increased risk among other race and ethnicity groups -- the larger the circle, the larger the risk. The circles that are blurred represent groups that were either of "Missing/Unknown" race and ethnicity or "Other" race and ethnicity; the blur suggests we need to refocus our microscope to get a clearer picture of the people in these groups.
 
-Why the microscope reference? For this piece, I drew upon the imagery of a blastocyst. By the 5th or 6th day after fertilization, an embryo is in the blastocyst stage (a rapidly dividing ball of cells). In the data art, each circle represents evidence of an inequity and together the circles accumulate and speak to the volume of evidence that may seem inconceivable, yet is undeniable.
+Why the microscope reference? For this piece, I drew upon the imagery of a blastocyst. By the 5th or 6th day after fertilization, an embryo is in the blastocyst stage (a rapidly dividing ball of cells). In the data art, each circle represents the risk of a bad outcome and together the circles accumulate and speak to the volume of evidence that may seem inconceivable, yet is undeniable.
 
 [![](images/embryo-day.jpg){fig-align="center"}](https://www.utahfertility.com/understanding-embryo-grading/)
 
 ```{r}
+#| label: figure-legend
+#| message: false
 #| eval: false
 
-# For “legend”: Try to create one image per circle where the rest is greyed out and only one circle is highlighted with information on what is represented (order by paper, chronological)
+#font_add_google("Shadows Into Light", "shadow")
+
+## Automatically use showtext to render text for future devices
+#showtext_auto()
+
+## Tell showtext the resolution of the device,
+## only needed for bitmap graphics. Default is 96
+#showtext_opts(dpi = 96)
+
+# https://gist.github.com/jsphdms/d1874affdbc85e3a7acbb16d0a17d03a
+#windowsFonts()
+
+# Add the font you need if it isn't listed. This is a temporary change and
+# needs to be done for each new R session:
+windowsFonts(`Segoe UI` = windowsFont('Segoe UI'))
+
+legend_plots <- list()
+
+# first plot
+#dat1 %>%
+#  count(ref)
+
+legend_plots[[1]] <- dat_gg2 %>%
+  ggplot(aes(x=x,y=y, group=id)) + 
+  geom_path(linewidth=1, color="black") +
+  geom_polygon(fill="black") +
+  geom_polygon(data=dat_white,fill="white") + 
+  theme_void() +
+  coord_fixed() + 
+  guides(fill="none", lty="none") +
+  labs(title = "'Causcasian', 'Non-Hispanic White', 'Non-Hispanic white', and 'White' \n served as the referent group in 100% of the studies") +
+  theme(panel.background = element_rect(fill = "black", colour="black")
+        , plot.background = element_rect(fill = "black")
+        , plot.title = element_text(colour = "white", size = 20, hjust = 0.5, family = "Segoe UI")
+        , plot.caption = element_text(family = "Segoe UI", size = 12, colour = "white")) 
+
+for (i in 2:max(dat_gg2$id)){
+
+  dat_temp <- dat_gg2 %>%
+    filter(id == i) %>%
+    mutate(in_grp = ifelse(compare %in% c("Unknown", "Missing") 
+                           , yes = paste0('women of "', compare, '" race')
+                           , no = paste0('"', compare, '" women'))
+           , title_text0 = case_when(point > 1 & point < 2
+                            ~ paste0('the risk of ', outcome, ' is \n'
+                                      , round((point-1)*100,0), '% higher in \n'
+                                      , in_grp)
+                          , point >= 2 
+                           ~ paste0('the risk of ', outcome, ' is \n'
+                                    , round(point,1), 'x higher in \n'
+                                    , in_grp)
+                          , point < 1 
+                          ~ paste0('the risk of ', outcome, ' is \n'
+                                  , round((1-point)*100,0), '% lower in \n'
+                                  , in_grp))
+           , title_text = case_when(!is.na(stratgrp) & !is.na(subgrp) 
+                                    ~  paste0(title_text0, "\n (", stratgrp, ", ", subgrp, ")")
+                                  , !is.na(stratgrp) 
+                                    ~ paste0(title_text0, "\n (", stratgrp, ")")
+                                  , !is.na(subgrp) 
+                                    ~ paste0(title_text0, "\n (", subgrp, ")")
+                                  , TRUE ~ title_text0)
+           , caption_text0 = paste0("Article: \n", title)
+           , caption_text = case_when(nchar(caption_text0) > 120 ~ paste0(str_sub(caption_text0, 1, 60), "\n", str_sub(caption_text0, 61, 120), "\n", str_sub(caption_text0, 121))
+                                      , nchar(caption_text0) > 60 ~ paste0(str_sub(caption_text0, 1, 60), "\n", str_sub(caption_text0, 61))
+                                      , TRUE ~ caption_text0))
+  
+  title_text <- dat_temp$title_text[1]
+  caption_text <- dat_temp$caption_text[1]
+  
+  plot_base <- dat_gg2 %>%
+    ggplot(aes(x=x,y=y, group=id)) + 
+    geom_path(linewidth=1, color="darkgrey") +
+    geom_polygon(data=dat_gg2_lower, fill="lightgrey") +
+    geom_polygon(data=dat_gg2_upper, fill="lightgrey", alpha=0.5) +
+    geom_polygon(data=dat_white,fill="white") + 
+    scale_fill_manual(values=color_pal) +
+    theme_void() +
+    coord_fixed() + 
+    guides(fill="none", lty="none") +
+    labs(title = title_text, caption = caption_text) +
+    theme(panel.background = element_rect(fill = "black", colour="black")
+          , plot.background = element_rect(fill = "black")
+          , plot.title = element_text(colour = "white", size = 20, hjust = 0.5, family = "Segoe UI")
+          , plot.caption = element_text(family = "Segoe UI", size = 12, colour = "white"))
+  
+  if (dat_temp$blur[1]==0) {
+    legend_plots[[i]] <- plot_base +
+      # add a circle with color just for the group of interest
+      geom_path(data=dat_temp, linewidth=1, color="#ffffff90") +
+      geom_polygon(data=filter(dat_gg2_lower, id==i), aes(fill=compare_broad)) +
+      geom_polygon(data=filter(dat_gg2_upper, id==i), aes(fill=compare_broad)
+                 , alpha=0.5)
+  }
+  
+  if (dat_temp$blur[1]==1) {
+    legend_plots[[i]] <- plot_base +
+      # add a circle with blurred color just for the group of interest
+      with_blur(
+        geom_path(data=dat_temp, linewidth=1, color="#ffffff90")
+        , sigma=5
+        ) +
+      with_blur(
+        geom_polygon(data=filter(dat_gg2_lower, id==i), aes(fill=compare_broad))
+        , sigma=5
+        ) +
+      with_blur(
+        geom_polygon(data=filter(dat_gg2_upper, id==i), aes(fill=compare_broad)
+                 , alpha=0.5)
+        , sigma=5
+        )
+  }
+}
+
+ani.options(interval = 2, loop=TRUE)
+# https://community.rstudio.com/t/combining-multiple-plots-into-animation-within-r-markdown/63181
+# saveGIF(
+#   expr = {
+#     for (i in 2:max(dat_gg2$id)){
+#       plot(legend_plots[[i]])
+#     }
+#   },
+#   movie.name = "blast_context.gif"
+# )
 ```
+
+Here is more information about each circle:
+
+```{r}
+#| label: figure-gif
+#| fig.show: 'animate'
+#| ffmpeg.format: 'gif'
+#| dev: 'png'
+#| eval: false
+
+#for (i in 2:max(dat_gg2$id)){
+#  
+#  plot(legend_plots[[i]])
+#
+#}
+```
+
+![](blast_context.gif){fig-align="center" width="620"}
