@@ -449,14 +449,14 @@ for (i in 2:max(dat_gg2$id)){
 
 ani.options(interval = 4, loop=TRUE)
 # https://community.rstudio.com/t/combining-multiple-plots-into-animation-within-r-markdown/63181
-saveGIF(
-  expr = {
-    for (i in 2:max(dat_gg2$id)){
-      plot(legend_plots[[i]])
-    }
-  },
-  movie.name = "blast_context.gif"
-)
+# saveGIF(
+#   expr = {
+#     for (i in 2:max(dat_gg2$id)){
+#       plot(legend_plots[[i]])
+#     }
+#   },
+#   movie.name = "blast_context.gif"
+# )
 
 # then, outside of R code chunk to include gif:
 # ![](blast_context.gif){fig-align="center" width="620"}
