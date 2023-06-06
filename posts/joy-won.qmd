@@ -5,7 +5,7 @@ date: "September 30, 2021"
 format: html
 ---
 
-![Trees:Forest by Joy Won](images/surf-artwork-joy-won.jpeg){fig-align="center"}
+![Trees:Forest by Joy Won](images/surf-artwork-joy-won.jpeg){fig-alt="Digital painting of a forest in the background and a single large tree with roots that turn to streams of water in the foreground" fig-align="center"}
 
 The well-known idiom, "Don't See the Forest for the Trees," was a key quote in thinking about the obstetrics and gynecology data we worked with this past summer in the Correia lab. Our research consisted of collecting and analyzing data about racial disparities relating to access to care, treatment received, and health outcomes from top journals in the field of obstetrics and gynecology. Data is concrete, numbers on a screen without emotion or feeling, but the subject matter of the data we collected was and is not. When working with medical data, especially relating to disparities and health outcomes, it is essential to approach the work with sensitivity and respect for those who have made this work possible. With that in mind, data art was the focus of our SURF project this summer, and as a group we pondered, researched, and discussed how the art we produced, in whatever form it took, could contribute to the greater narrative of our research.
 

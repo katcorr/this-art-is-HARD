@@ -11,7 +11,7 @@ Black patients are disproportionally more vulnerable to death during childbirth,
 :::
 
 ::: {.column width="50%"}
-![Half Hearted by Alexander Brandfonbrener](images/surf-artwork-alex-b.jpg)
+![Half Hearted by Alexander Brandfonbrener](images/surf-artwork-alex-b.jpg){fig-alt="five rows of hearts, with one large heart, a colon, and then multiple smaller hearts on each row"}
 :::
 :::
 
