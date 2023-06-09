@@ -11,15 +11,15 @@ Data art is a *visceralization*[^1] of data that takes a step beyond data visual
 
 ::: columns
 ::: {.column width="33%"}
-![](images/alex_sketch1.jpeg){fig-alt="A colored pencil sketch drawing colors to particular numbers and creating a colorful crisscross pattern" fig-align="center"}
+![](images/alex_sketch1.jpeg){fig-alt="A sketch drawn with colored pencils assigning numbers to colors and then coloring pi and the first 100 prime numbers in those colors" fig-align="center"}
 :::
 
 ::: {.column width="34%"}
-![](images/alex_sketch2.jpeg){fig-alt="A colored pencil drawing with bars colored green to brown to blue" fig-align="center"}
+![](images/alex_sketch2.jpeg){fig-alt="A sketch drawn with colored pencils of 10 bars where bar length and color represent different risks such as searched at a traffic stop and incarcerated as an adult" fig-align="center"}
 :::
 
 ::: {.column width="33%"}
-![](images/alex_sketch3.jpeg){fig-alt="A colored pencil sketch using different colors and patterns to represent ratios" fig-align="center"}
+![](images/alex_sketch3.jpeg){fig-alt="A sketch drawn with colored pencils exploring how different colors and patterns can be used to represent ratios" fig-align="center"}
 :::
 :::
 

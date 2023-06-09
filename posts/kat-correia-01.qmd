@@ -187,7 +187,7 @@ blastocyst1 <- base_plot1 +
 #ggsave(plot=blastocyst1, filename="images/blastocyst.png")
 ```
 
-![](images/blastocyst.png){fig-alt="Many large yellow, magenta, and purple circles surrounding a small white circle on a black background; some circles are blurred" fig-align="center"}
+![](images/blastocyst.png){fig-alt="On a black background, 86 circles of different sizes and vibrant colors are packed together, including a small white circle in the middle, and larger yellow, magenta, and purple circles surroundig it; 17 circles are blurred." fig-align="center"}
 
 One of the things that struck me during our review was just how many different studies identified large racial and ethnic disparities in maternal morbidity and mortality outcomes AFTER accounting for many different "explanations" -- differences in age, income, education, hospital type, geography -- and measured in many different ways -- blood transfusions, hysterectomy, sepsis, admission to intensive care unit, . . .
 
@@ -238,13 +238,13 @@ plot_legend <- ggplot(data=dat_legend, aes(x=x,y=y,fill=group,color=group)) +
 #ggsave(plot=plot_legend, filename="images/blastocyst_legend.png")
 ```
 
-![](images/blastocyst_legend.png){fig-alt="Legend indicating smaller circles represent lower risk and larger circles represent higher risk" fig-align="center"}
+![](images/blastocyst_legend.png){fig-alt="Legend indicating smaller circles represent lower risk and larger circles represent higher risk." fig-align="center"}
 
 Why the microscope reference? For this piece, I drew upon the imagery of a blastocyst. By the 5th or 6th day after fertilization, an embryo is in the blastocyst stage (a rapidly dividing ball of cells).
 
 ::: columns
 ::: {.column width="50%"}
-[![](images/embryo-day.jpg){fig-alt="Six images of an embryo developing under a microscope on days 1 through 5 after fertilization" fig-align="center"}](https://www.utahfertility.com/understanding-embryo-grading/)
+[![](images/embryo-day.jpg){fig-alt="Six images of an embryo developing under a microscope on days 1 through 5 after fertilization." fig-align="center"}](https://www.utahfertility.com/understanding-embryo-grading/)
 :::
 
 ::: {.column width="50%"}
@@ -292,7 +292,7 @@ base_micro_blur <- base_micro +
 #ggsave(plot=base_micro_blur, filename="images/blastocyst_grey.png")
 ```
 
-![](images/blastocyst_grey.png){fig-alt="86 grey circles of varying size" fig-align="center"}
+![](images/blastocyst_grey.png){fig-alt="86 grey circles of varying size on a black background." fig-align="center"}
 
 :::
 :::

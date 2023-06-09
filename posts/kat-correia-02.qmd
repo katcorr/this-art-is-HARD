@@ -108,7 +108,7 @@ Bayard Love and Deena Hayes-Greene of the [Racial Equity Institute](https://raci
 
 In a 2021 article published in the *American Journal of Obstetrics and Gynecology* titled "[Urban-rural differences in pregnancy-related deaths, United States, 2011-2016](https://pubmed.ncbi.nlm.nih.gov/33640361/)", researchers "sought to compare pregnancy-related mortality across and within urban and rural counties by race and ethnicity and age". The following table is presented in the article:
 
-![](images/table3.png){fig-align="center" width="1700"}
+![](images/table3.png){fig-align="center" width="1700" fig-alt="A table from the journal article dislaying the pregnancy-related mortality ratio by county urban-rural categorization, overall and by race and ethnicity, in the United States from 2011-2016."}
 
 In this animated data art piece, each confidence interval in Table 3 is represented as a line of water dripping deeper and deeper into the ground. Different colors are used to distinguish the different race and ethnicity groups, ordered by lowest to highest risk.
 
@@ -128,7 +128,7 @@ dat_legend <- dat_legend0 %>%
   bind_rows(dat_legend0 %>%
               mutate(compare="Asian or Pacific Islander", xnew = xnew - 4)) %>%
   bind_rows(dat_legend0 %>%
-              mutate(compare=, xnew = xnew - 2)) 
+              mutate(compare="American Indian or Alaska Native", xnew = xnew - 2)) 
 
 dat_legend_fct <- dat_legend %>%
   mutate(compare_fct = factor(compare, levels=c("White", "Hispanic", "Asian or Pacific Islander"
@@ -148,28 +148,28 @@ plot_legend <- ggplot(data=dat_legend_fct, aes(x=xnew, y=y_prmr, color=compare_f
               filter(row_number()==1) %>%
               mutate(y = ifelse(compare %in% c("White", "Asian or Pacific Islander", "Black")
                                 , yes=68, no=75))
-            , aes(label=compare_fct, x=xnew, y=y)) +
+            , aes(label=compare_fct, x=xnew+0.5, y=y)) +
   guides(color="none") +
   # urban-rural categorization
   geom_path(data=dat_legend_urbrural, aes(group=compare), linewidth=1, color="#2171b5") +
   geom_text(data=dat_legend_urbrural %>%
               group_by(compare) %>%
               filter(row_number()==1)
-            , aes(label=compare, y=120), color="#2171b5") +
+            , aes(label=compare, x=xnew+1, y=120), color="#2171b5") +
   geom_segment(aes(x=88, xend=91, y=105, yend=105), color="#2171b5"
-               , size = 1, arrow = arrow(length = unit(0.3, "inches"))) +
+               , linewidth = 1, arrow = arrow(length = unit(0.3, "inches"))) +
   annotate("text", x = 88, y = 88, label = "Within each race and ethnicity category:"
            , color = "#2171b5") +
   theme_void() +
   #theme(panel.background = element_rect(fill = "#D7D2BF", color="#D7D2BF"))
-  theme(panel.background = element_rect(fill = "#907f61", color="#907f61")) 
-  #theme(panel.background = element_rect(fill = "#b1a590", color="#b1a590")) 
+  #theme(panel.background = element_rect(fill = "#907f61", color="#907f61")) 
+  theme(panel.background = element_rect(fill = "#32251d", color="#32251d")) 
   
 
 #ggsave(plot=plot_legend, filename="images/groundwater_legend.png")
 ```
 
-![](images/groundwater_legend.png){fig-alt="Legend indicating leftmost water lines represent more urban counties and rightmost water lines represent more rural counties" fig-align="center" width="1900"}
+![](images/groundwater_legend.png){fig-alt="A legend indicating leftmost water lines represent more urban counties and rightmost water lines represent more rural counties." fig-align="center" width="1900"}
 
 If we think how a more typical data visualization might present the data in Table 3, we might imagine something like this:
 
@@ -189,7 +189,12 @@ typical_plot <- ggplot(data=PRMR_dat, aes(x=compare_fct, y=point
   labs(x="", y="Number of pregnancy-related deaths \n per 100,000 live births (95% CI)"
        , color = "", shape = "") +
   #scale_color_brewer(palette="OrRd") +
-  scale_color_manual(values=colorpal) + 
+  scale_color_manual(values=colorpal
+                     , labels=c("Large Metro \n (Most Urban)"
+                                , "Medium Metro"
+                                , "Small Metro"
+                                , "Micropolitan"
+                                , "Noncore \n (Most Rural)")) + 
   annotate("rect", xmin = 0, xmax = 1.5, ymin = 0, ymax = 90, alpha = .1) +
   annotate("rect", xmin = 2.5, xmax = 3.5, ymin = 0, ymax = 90, alpha = .1) +
   annotate("rect", xmin = 4.5, xmax = 6, ymin = 0, ymax = 90, alpha = .1) +
@@ -211,7 +216,7 @@ typical_plot <- ggplot(data=PRMR_dat, aes(x=compare_fct, y=point
 #ggsave(plot=typical_plot, filename="images/groundwater_typical.png")
 ```
 
-![](images/groundwater_typical.png){fig-alt="Plot displaying point estimate and 95% confidence interval broken down by race and ethnicity group and urban-rural categorization" fig-align="center" width="1900"}
+![](images/groundwater_typical.png){fig-alt="Plot displaying the point estimates and 95% confidence intervals for the number of pregnancy-related deaths per 100,000 births for each race and ethnicity group and each urban-rural categorization. White and Hispanic have the lowest point estimates and shortest confidence intervals. American Indian or Alaska Native and Black have the highest point estimates and the widest confidence intervals." fig-align="center" width="1900"}
 
 A few notable observations:
 

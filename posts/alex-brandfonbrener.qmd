@@ -7,11 +7,11 @@ format: html
 
 ::: columns
 ::: {.column width="50%"}
-Black patients are disproportionally more vulnerable to death during childbirth, even after evaluating confounding factors. This graphic features the most startling odds ratios collected in our narrative review. The large hearts illustrate the severe maternal morbidity statistic, while number of smaller hearts reflect the magnitude of the odds ratio.
+Black patients are disproportionately more vulnerable to death during childbirth, even after evaluating confounding factors. This graphic features the most startling odds ratios collected in our narrative review. The large hearts illustrate the severe maternal morbidity statistic, while number of smaller hearts reflect the magnitude of the odds ratio.
 :::
 
 ::: {.column width="50%"}
-![Half Hearted by Alexander Brandfonbrener](images/surf-artwork-alex-b.jpg){fig-alt="five rows of hearts, with one large heart, a colon, and then multiple smaller hearts on each row"}
+![Half Hearted by Alexander Brandfonbrener](images/surf-artwork-alex-b.jpg){fig-alt="Five rows of hearts, with one large heart, a colon, and multiple smaller hearts on each row. The number of smaller hearts represent the relative increase in risk of a morbidity and mortality outcome among Black women as compared to white women. Pink, red, and purple hues are used, and imagery related to the outcome are embedded within the big hearts, such as a fallopian tube for death from ectopic pregnancy."}
 :::
 :::
 
