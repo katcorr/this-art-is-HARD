@@ -32,9 +32,9 @@ A data extraction spreadsheet was created for each reviewer to systematically an
 
 In an effort to make research more transparent and accessible, we are providing the data we collected about the journal articles:
 
--   in [this Google sheet](https://docs.google.com/spreadsheets/d/1CY3Ct-vVRJRBWjK5wNtYhhfmS8h4bkDDWYVqs-Lv6Jk/edit?usp=sharing) for those who want to work with the raw data directly
+-   in [this Google sheet](https://docs.google.com/spreadsheets/d/1UuWGQxRU0wxVuOZGYnvkwKn-GdmLIj8kzmUm4KLRHQY/edit?gid=1719021104#gid=1719021104) for those who want to work with the raw data directly
 
--   in [this interactive website](http://obgyn-shiny.shinyapps.io/obgyn-disp) which provides a more user-friendly interface to explore the raw data
+-   in [this interactive website](https://obgyn-shiny.shinyapps.io/obgyn-disp/) which provides a more user-friendly interface to explore the raw data
 
 If you have trouble accessing either link, would like help getting the data in a different format, or have other questions, please contact us using the contact form!
 
